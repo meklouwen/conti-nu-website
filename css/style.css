@@ -175,15 +175,13 @@ strong { font-weight: 600; color: var(--brown); }
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   height: var(--nav-h);
-  background: rgba(254,249,244,.88);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid transparent;
-  transition: var(--t);
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow .35s ease, height .35s ease;
 }
 .nav.scrolled {
-  border-bottom-color: var(--border);
-  box-shadow: var(--sh-sm);
+  box-shadow: 0 2px 20px rgba(0,0,0,.08);
+  height: calc(var(--nav-h) - 10px);
 }
 .nav-inner {
   max-width: var(--max-w); margin: 0 auto;
