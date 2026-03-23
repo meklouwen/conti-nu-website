@@ -401,7 +401,7 @@ strong { font-weight: 600; color: var(--brown); }
   box-shadow: var(--sh-lg); width: 280px; word-break: break-word;
 }
 .badge-number { font-family: var(--font-d); font-size: 1.7rem; line-height: 1.2; margin-bottom: .5rem; }
-.badge-text   { font-size: 1.1rem; font-weight: 600; opacity: .95; line-height: 1.4; }
+.badge-text   { font-size: 1.1rem; font-weight: 600; font-style: italic; opacity: .95; line-height: 1.4; }
 
 .about-home-content { display: flex; flex-direction: column; gap: 1.5rem; }
 
