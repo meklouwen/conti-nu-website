@@ -190,10 +190,7 @@ strong { font-weight: 600; color: var(--brown); }
 }
 .nav-logo { flex-shrink: 0; display: flex; align-items: center; gap: .7rem; }
 .nav-logo-mark {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--orange);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--white); font-family: var(--font-d); font-size: 1.3rem; font-style: italic;
+  width: 36px; height: 36px;
   flex-shrink: 0;
 }
 .nav-logo-text { line-height: 1.15; }
