@@ -351,7 +351,7 @@
   btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
   // ── Contactformulier → n8n webhook ───────────────
-  const WEBHOOK_URL = 'JOUW_N8N_WEBHOOK_URL_HIER'; // ← vervang met je n8n webhook URL
+  const WEBHOOK_URL = 'https://maartenklouwen.app.n8n.cloud/webhook/Dunja test';
 
   const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
@@ -398,7 +398,10 @@
       try {
         await fetch(WEBHOOK_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic ' + btoa('DUNJA:TESTTESTTEST')
+          },
           body: JSON.stringify(payload)
         });
       } catch (_) {
