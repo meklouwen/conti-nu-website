@@ -139,6 +139,16 @@
           </div>
         </div>
 
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Bedrijfsgegevens</div>
+            <div class="contact-info-value">KvK 85914134<br>BTW NL004170486B43</div>
+          </div>
+        </div>
+
         <!-- Trust indicators -->
         <div style="padding:1.5rem; background:var(--orange-pale); border-radius:var(--r-lg); border:1px solid rgba(232,119,34,.2);">
           <div style="font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); margin-bottom:.75rem;">Waarom kiezen voor ons?</div>
@@ -322,8 +332,9 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-bottom-copy">&copy; 2026 CONTI-NU Bedrijfsondersteuning. Alle rechten voorbehouden.</span>
-      <div class="footer-bottom-links"><a href="/privacyverklaring">Privacyverklaring</a><a href="https://thesystem.nl" target="_blank" rel="noopener">Made by The System</a></div>
+      <span class="footer-bottom-copy">&copy; 2026 CONTI-NU Bedrijfsondersteuning &nbsp;&middot;&nbsp; KvK 85914134 &nbsp;&middot;&nbsp; BTW NL004170486B43 &nbsp;&middot;&nbsp; Alle rechten voorbehouden.</span>
+      <div class="footer-bottom-links"><a href="/algemene-voorwaarden">Algemene voorwaarden</a>
+        <a href="/privacyverklaring">Privacyverklaring</a><a href="https://thesystem.nl" target="_blank" rel="noopener">Made by The System</a></div>
     </div>
   </div>
 </footer>
@@ -346,6 +357,11 @@
   // AOS
   const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
   document.querySelectorAll('.aos,.aos-left,.aos-right,.aos-scale').forEach(el=>obs.observe(el));
+  /* Vangnet: in embedded previews (vaste-hoogte iframe, geen scroll) vuurt de
+     IntersectionObserver niet voor content onder de vouw. Reveal die kort na load
+     alsnog — geen zichtbaar effect op de live site (onder-de-vouw zie je daar pas
+     bij scrollen, en dan is 'visible' al gezet). */
+  window.addEventListener('load',function(){setTimeout(function(){document.querySelectorAll('.aos,.aos-left,.aos-right,.aos-scale').forEach(function(el){el.classList.add('visible');});},1200);});
 
   // Back to top
   btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
