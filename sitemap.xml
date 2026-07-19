@@ -44,6 +44,13 @@
   </url>
 
   <url>
+    <loc>https://www.conti-nu.nl/veelgestelde-vragen</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
     <loc>https://www.conti-nu.nl/privacyverklaring</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>yearly</changefreq>
