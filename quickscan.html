@@ -353,6 +353,69 @@
   }
   .cta-btn:hover{ background:var(--moss-deep); }
 
+  /* ---- Mail form (uitslag per e-mail) ---- */
+  .mail-box{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:26px 24px;
+    margin-top:28px;
+    box-shadow:var(--shadow);
+  }
+  .mail-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:19px;
+    margin-bottom:6px;
+  }
+  .mail-box > p{
+    margin:0 0 16px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  .mail-fields{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .mail-fields input[type="text"],
+  .mail-fields input[type="email"]{
+    flex:1 1 200px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:13px 14px;
+    font-family:'Inter', sans-serif;
+    font-size:14.5px;
+    color:var(--ink);
+  }
+  .mail-fields input:focus{ outline:none; border-color:var(--moss); background:var(--white); }
+  .mail-fields button{
+    flex:0 0 auto;
+    background:var(--moss);
+    color:var(--white);
+    border:none;
+    border-radius:10px;
+    padding:13px 20px;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+    cursor:pointer;
+    transition:background 0.15s ease;
+  }
+  .mail-fields button:hover{ background:var(--moss-deep); }
+  .mail-fields button:disabled{ opacity:0.6; cursor:default; }
+  .mail-status{ margin-top:12px; font-size:14px; }
+  .mail-status.ok{ color:var(--moss-deep); font-weight:600; }
+  .mail-status.err{ color:var(--amber); }
+  .mail-privacy{
+    margin:14px 0 0;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  .mail-privacy a{ color:var(--ink-soft); }
+  .hp-field{ position:absolute; left:-9999px; top:-9999px; height:0; width:0; opacity:0; }
+
   .restart-link{
     display:block;
     margin-top:20px;
@@ -412,6 +475,21 @@
 
     <div id="cat-blocks"></div>
 
+    <div class="mail-box">
+      <div class="mail-title">Ontvang uw uitslag per e-mail</div>
+      <p>Dan heeft u de uitslag bij de hand en kunnen wij desgewenst één keer met u meedenken.</p>
+      <form id="mail-form" novalidate>
+        <div class="mail-fields">
+          <input type="text" id="mail-name" name="name" placeholder="Uw naam (optioneel)" autocomplete="name">
+          <input type="email" id="mail-email" name="email" placeholder="uw@emailadres.nl" autocomplete="email" required>
+          <input type="text" id="mail-website" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" id="mail-submit">Verstuur uitslag</button>
+        </div>
+      </form>
+      <div class="mail-status" id="mail-status" role="status"></div>
+      <p class="mail-privacy">Wij gebruiken uw e-mailadres alleen om de uitslag te sturen en eventueel eenmalig op te volgen. Zie onze <a href="/privacyverklaring">privacyverklaring</a>.</p>
+    </div>
+
     <hr class="divider">
 
     <div class="cta-box">
@@ -434,6 +512,7 @@
   var state = { type: null, answers: {} };
   var flow = [];       // computed list of question ids for the chosen branch
   var current = 0;     // index into flow
+  var lastResult = null; // uitslag van de laatste run, voor de uitslag-mail
 
   // ---------------------------------------------------------------
   // QUESTION DEFINITIONS
@@ -809,7 +888,72 @@
       // trigger transition
       setTimeout(function(){ }, 10);
     });
+
+    lastResult = {
+      practiceType: state.type,
+      verdictTitle: verdict.title,
+      categories: catDefs.map(function(c){ return { name:c.name, pct:c.val, label:labelFor(c.val).word }; })
+    };
+    resetMailForm();
   }
+
+  // ---------------------------------------------------------------
+  // UITSLAG PER E-MAIL (Flowmailer via /api/quickscan-mail)
+  // ---------------------------------------------------------------
+  var mailForm = document.getElementById('mail-form');
+  var mailStatus = document.getElementById('mail-status');
+  var mailSubmit = document.getElementById('mail-submit');
+
+  function resetMailForm(){
+    mailForm.classList.remove('hidden');
+    mailStatus.textContent = "";
+    mailStatus.className = "mail-status";
+    mailSubmit.disabled = false;
+  }
+
+  mailForm.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var email = document.getElementById('mail-email').value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){
+      mailStatus.textContent = "Vul een geldig e-mailadres in.";
+      mailStatus.className = "mail-status err";
+      return;
+    }
+    if(!lastResult) return;
+
+    mailSubmit.disabled = true;
+    mailStatus.textContent = "Bezig met versturen…";
+    mailStatus.className = "mail-status";
+
+    fetch('/api/quickscan-mail', {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json' },
+      body: JSON.stringify({
+        email: email,
+        name: document.getElementById('mail-name').value.trim(),
+        website: document.getElementById('mail-website').value,
+        practiceType: lastResult.practiceType,
+        verdictTitle: lastResult.verdictTitle,
+        categories: lastResult.categories
+      })
+    }).then(function(res){
+      if(res.ok){
+        mailForm.classList.add('hidden');
+        mailStatus.textContent = "Verstuurd! U ontvangt de uitslag binnen enkele minuten in uw inbox.";
+        mailStatus.className = "mail-status ok";
+      } else {
+        return res.json().catch(function(){ return {}; }).then(function(body){ throw body; });
+      }
+    }).catch(function(body){
+      mailSubmit.disabled = false;
+      if(body && body.reason === "not_configured"){
+        mailStatus.innerHTML = 'Versturen per e-mail is tijdelijk niet beschikbaar. Mail ons gerust via <a href="mailto:info@conti-nu.nl">info@conti-nu.nl</a>.';
+      } else {
+        mailStatus.textContent = "Versturen is niet gelukt. Probeer het later opnieuw of mail ons via info@conti-nu.nl.";
+      }
+      mailStatus.className = "mail-status err";
+    });
+  });
 
 })();
 </script>
