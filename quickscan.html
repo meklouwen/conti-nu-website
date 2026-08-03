@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quickscan zorgadministratie — Conti-nu</title>
+<meta name="description" content="Hoe kwetsbaar is uw zorgadministratie? Elf korte vragen over tijd, risico en groei binnen uw GGZ- of jeugdhulppraktijk — met direct inzicht in de knelpunten.">
+<link rel="canonical" href="https://conti-nu-website.vercel.app/quickscan">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="Assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#3D1A00;
+    --ink-soft:#6E4A2E;
+    --paper:#F5EFE6;
+    --paper-dim:#EAE0CE;
+    --white:#FFFDF8;
+    --moss:#E8722A;
+    --moss-deep:#C25A1A;
+    --moss-light:#F0A574;
+    --amber:#8C4419;
+    --amber-soft:#D9B08C;
+    --line:#E1D3BA;
+    --radius:14px;
+    --shadow: 0 1px 2px rgba(61,26,0,0.05), 0 8px 24px rgba(61,26,0,0.07);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+
+  .scan-wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:56px 24px 80px;
+  }
+
+  /* ---- Masthead: dossier-style header ---- */
+  .scan-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    border-bottom:1.5px solid var(--ink);
+    padding-bottom:18px;
+    margin-bottom:36px;
+  }
+  .scan-head .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:0.01em;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .scan-head .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ---- Tab-style progress (dossier tabs) ---- */
+  .tabs{
+    display:flex;
+    gap:4px;
+    margin-bottom:40px;
+  }
+  .tab{
+    flex:1;
+    height:6px;
+    background:var(--paper-dim);
+    border-radius:3px;
+    overflow:hidden;
+    position:relative;
+  }
+  .tab-fill{
+    position:absolute; left:0; top:0; bottom:0;
+    width:0%;
+    background:var(--moss);
+    border-radius:3px;
+    transition:width 0.5s ease;
+  }
+  .tab.done .tab-fill{ width:100%; }
+  .tab.current .tab-fill{ width:50%; }
+
+  .step-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    letter-spacing:0.05em;
+    margin-bottom:8px;
+  }
+
+  /* ---- Card ---- */
+  .card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:40px;
+    box-shadow:var(--shadow);
+    min-height:280px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  @media (max-width:600px){
+    .card{ padding:28px 22px; }
+    .scan-wrap{ padding:32px 16px 60px; }
+  }
+
+  .q-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--moss);
+    margin-bottom:14px;
+  }
+
+  .q-text{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:26px;
+    line-height:1.28;
+    margin:0 0 28px;
+    color:var(--ink);
+  }
+  @media (max-width:600px){
+    .q-text{ font-size:21px; }
+  }
+
+  .options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .option{
+    text-align:left;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 18px;
+    font-family:'Inter', sans-serif;
+    font-size:15.5px;
+    color:var(--ink);
+    cursor:pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .option:hover{
+    border-color:var(--moss);
+    background:var(--white);
+  }
+  .option:active{ transform:scale(0.996); }
+  .option .marker{
+    width:18px; height:18px;
+    border-radius:50%;
+    border:1.5px solid var(--line);
+    flex-shrink:0;
+  }
+  .option:hover .marker{ border-color:var(--moss); }
+
+  /* type-select cards (question 0) */
+  .type-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:10px;
+  }
+  @media (max-width:600px){
+    .type-grid{ grid-template-columns:1fr; }
+  }
+  .type-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px 16px;
+    cursor:pointer;
+    text-align:left;
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+  .type-card:hover{ border-color:var(--moss); background:var(--white); }
+  .type-card .t-label{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:16px;
+    margin-bottom:4px;
+  }
+  .type-card .t-sub{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  /* nav row */
+  .nav-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:22px;
+  }
+  .back-btn{
+    background:none;
+    border:none;
+    font-family:'Inter', sans-serif;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    cursor:pointer;
+    padding:6px 2px;
+  }
+  .back-btn:hover{ color:var(--ink); }
+  .back-btn:disabled{ opacity:0; pointer-events:none; }
+
+  /* ---- Intro screen ---- */
+  .intro h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:32px;
+    line-height:1.22;
+    margin:0 0 16px;
+  }
+  @media (max-width:600px){ .intro h1{ font-size:26px; } }
+  .intro p{
+    font-size:16px;
+    color:var(--ink-soft);
+    margin:0 0 28px;
+    max-width:52ch;
+  }
+  .start-btn{
+    background:var(--moss);
+    color:var(--white);
+    border:none;
+    border-radius:10px;
+    padding:15px 26px;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    transition:background 0.15s ease;
+  }
+  .start-btn:hover{ background:var(--moss-deep); }
+  .intro-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:18px;
+    letter-spacing:0.02em;
+  }
+
+  /* ---- Results screen ---- */
+  .result-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--moss);
+    margin-bottom:10px;
+  }
+  .result-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:30px;
+    line-height:1.2;
+    margin:0 0 14px;
+  }
+  @media (max-width:600px){ .result-title{ font-size:24px; } }
+  .result-lede{
+    font-size:16px;
+    color:var(--ink-soft);
+    margin:0 0 32px;
+    max-width:56ch;
+  }
+
+  .cat-block{
+    margin-bottom:22px;
+  }
+  .cat-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:6px;
+  }
+  .cat-name{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:14px;
+  }
+  .cat-score{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  .cat-bar{
+    height:8px;
+    background:var(--paper-dim);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .cat-bar-fill{
+    height:100%;
+    border-radius:4px;
+    background:var(--moss);
+    width:0%;
+    transition:width 0.8s ease;
+  }
+  .cat-bar-fill.warn{ background:var(--amber); }
+  .cat-note{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin-top:6px;
+    line-height:1.45;
+  }
+
+  .divider{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:30px 0;
+  }
+
+  .cta-box{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:26px 24px;
+  }
+  .cta-box p{
+    margin:0 0 16px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  .cta-btn{
+    display:inline-block;
+    background:var(--moss);
+    color:var(--white) !important;
+    text-decoration:none;
+    border-radius:10px;
+    padding:14px 22px;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+  }
+  .cta-btn:hover{ background:var(--moss-deep); }
+
+  .restart-link{
+    display:block;
+    margin-top:20px;
+    font-size:13px;
+    color:var(--ink-soft);
+    text-decoration:underline;
+    cursor:pointer;
+    background:none;
+    border:none;
+    padding:0;
+    font-family:'Inter', sans-serif;
+  }
+
+  .hidden{ display:none !important; }
+
+</style>
+</head>
+<body>
+
+<div class="scan-wrap">
+
+  <div class="scan-head">
+    <a class="brand" href="/">Conti-nu</a>
+    <div class="kicker">Quickscan zorgadministratie</div>
+  </div>
+
+  <!-- INTRO -->
+  <div id="screen-intro">
+    <div class="intro">
+      <h1>Hoe kwetsbaar is uw zorgadministratie eigenlijk?</h1>
+      <p>Elf korte vragen over tijd, risico en groei binnen uw GGZ- of jeugdhulppraktijk. Aan het eind ziet u direct waar de knelpunten zitten — en waar niet.</p>
+      <button class="start-btn" id="start-btn">Start de quickscan →</button>
+      <div class="intro-meta">± 2 minuten · geen verplichtingen</div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="screen-quiz" class="hidden">
+    <div class="step-label" id="step-label">Vraag 1</div>
+    <div class="tabs" id="tabs"></div>
+    <div class="card">
+      <div id="q-eyebrow" class="q-eyebrow"></div>
+      <div class="q-text" id="q-text"></div>
+      <div id="q-body"></div>
+    </div>
+    <div class="nav-row">
+      <button class="back-btn" id="back-btn">← Vorige</button>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="screen-results" class="hidden">
+    <div class="result-eyebrow" id="res-eyebrow">Uw uitslag</div>
+    <div class="result-title" id="res-title"></div>
+    <p class="result-lede" id="res-lede"></p>
+
+    <div id="cat-blocks"></div>
+
+    <hr class="divider">
+
+    <div class="cta-box">
+      <p id="cta-text">Wilt u weten hoe dit zich voor uw praktijk concreet vertaalt naar rust en tijd?</p>
+      <!-- Pas het e-mailadres/onderwerp hieronder aan naar wens -->
+      <a class="cta-btn" id="cta-btn" href="mailto:info@conti-nu.nl?subject=Vrijblijvend%20adviesgesprek%20naar%20aanleiding%20van%20quickscan">Plan een vrijblijvend gesprek</a>
+    </div>
+
+    <button class="restart-link" id="restart-btn">Scan opnieuw doen</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+
+  // ---------------------------------------------------------------
+  // STATE
+  // ---------------------------------------------------------------
+  var state = { type: null, answers: {} };
+  var flow = [];       // computed list of question ids for the chosen branch
+  var current = 0;     // index into flow
+
+  // ---------------------------------------------------------------
+  // QUESTION DEFINITIONS
+  // ---------------------------------------------------------------
+  var questions = {
+
+    type: {
+      cat: null,
+      eyebrow: "Om te beginnen",
+      text: "Welke zorg biedt uw praktijk?",
+      type: "type-select",
+      options: [
+        { label:"GGZ", sub:"Zvw-gefinancierd, zorgprestatiemodel", value:"ggz" },
+        { label:"Jeugdhulp", sub:"Gemeentelijk gefinancierd", value:"jeugd" },
+        { label:"Beide", sub:"GGZ én jeugdhulp", value:"both" }
+      ]
+    },
+
+    q1: {
+      cat:"tijd",
+      eyebrow:"Tijd & capaciteit",
+      text:"Hoeveel uur per week besteedt uw praktijk aan declaratieverwerking en zorgadministratie?",
+      options:[
+        {label:"Minder dan 2 uur", points:1},
+        {label:"2 – 5 uur", points:2},
+        {label:"5 – 10 uur", points:3},
+        {label:"Meer dan 10 uur", points:4}
+      ]
+    },
+    q2: {
+      cat:"tijd",
+      eyebrow:"Tijd & capaciteit",
+      text:"Wat gebeurt er met de administratie als de verantwoordelijke persoon ziek of afwezig is?",
+      options:[
+        {label:"Iemand anders neemt het direct en soepel over", points:1},
+        {label:"Het blijft liggen tot diegene terug is", points:3},
+        {label:"Er ontstaat vrij snel achterstand of onduidelijkheid", points:4},
+        {label:"Eerlijk gezegd weten we dat niet zo goed", points:4}
+      ]
+    },
+    q3: {
+      cat:"tijd",
+      eyebrow:"Tijd & capaciteit",
+      text:"Hoe vaak lopen declaraties vertraging op door tijdgebrek of drukte in de praktijk?",
+      options:[
+        {label:"Zelden of nooit", points:1},
+        {label:"Af en toe", points:2},
+        {label:"Regelmatig", points:3},
+        {label:"Vaak", points:4}
+      ]
+    },
+
+    q4a: {
+      cat:"risico", showIf:function(s){ return s.type==="ggz"||s.type==="both"; },
+      eyebrow:"Risico & kennis — GGZ",
+      text:"Hoe zeker bent u dat uw declaraties voldoen aan de actuele eisen van het zorgprestatiemodel?",
+      options:[
+        {label:"Heel zeker", points:1},
+        {label:"Redelijk zeker", points:2},
+        {label:"Niet helemaal zeker", points:3},
+        {label:"Geen idee eigenlijk", points:4}
+      ]
+    },
+    q5a: {
+      cat:"risico", showIf:function(s){ return s.type==="ggz"||s.type==="both"; },
+      eyebrow:"Risico & kennis — GGZ",
+      text:"Wanneer heeft u voor het laatst een controle van een zorgverzekeraar of de NZa gehad?",
+      options:[
+        {label:"Nooit of lang geleden, en dat verliep goed", points:1},
+        {label:"Weleens, met enkele aandachtspunten", points:2},
+        {label:"Nog nooit — geen idee hoe dat zou verlopen", points:3},
+        {label:"Recent, en dat kostte veel tijd en stress", points:4}
+      ]
+    },
+
+    q4b: {
+      cat:"jeugdcomplex", showIf:function(s){ return s.type==="jeugd"||s.type==="both"; },
+      eyebrow:"Complexiteit — Jeugdhulp",
+      text:"Met hoeveel verschillende gemeenten of regio's heeft uw praktijk op dit moment een contract?",
+      options:[
+        {label:"1 gemeente", points:1},
+        {label:"2 – 3 gemeenten", points:2},
+        {label:"4 – 6 gemeenten", points:3},
+        {label:"Meer dan 6 gemeenten", points:4}
+      ]
+    },
+    q5b: {
+      cat:"jeugdcomplex", showIf:function(s){ return s.type==="jeugd"||s.type==="both"; },
+      eyebrow:"Complexiteit — Jeugdhulp",
+      text:"Hoe goed heeft u zicht op de verschillen in bekostigingsmodel (PxQ, taakgericht, lumpsum) tussen die gemeenten?",
+      options:[
+        {label:"Volledig helder", points:1},
+        {label:"Redelijk, met wat vraagtekens", points:2},
+        {label:"Beperkt — dat kost vaak uitzoekwerk", points:3},
+        {label:"Nauwelijks, we zoeken het per geval uit", points:4}
+      ]
+    },
+    q6b: {
+      cat:"jeugdcomplex", showIf:function(s){ return s.type==="jeugd"||s.type==="both"; },
+      eyebrow:"Complexiteit — Jeugdhulp",
+      text:"Hoe verloopt bij u de aanlevering van iJW-berichten en CBS-beleidsinformatie?",
+      options:[
+        {label:"Grotendeels geautomatiseerd", points:1},
+        {label:"Deels automatisch, deels handmatig", points:2},
+        {label:"Handmatig, maar het lukt ons steeds", points:3},
+        {label:"Handmatig en foutgevoelig", points:4}
+      ]
+    },
+    q7b: {
+      cat:"jeugdcomplex", showIf:function(s){ return s.type==="jeugd"||s.type==="both"; },
+      eyebrow:"Complexiteit — Jeugdhulp",
+      text:"Hoe vaak leiden verschillen in tarieven of voorwaarden tussen gemeenten tot fouten of onduidelijkheid in de facturatie?",
+      options:[
+        {label:"Zelden of nooit", points:1},
+        {label:"Af en toe", points:2},
+        {label:"Regelmatig", points:3},
+        {label:"Vaak", points:4}
+      ]
+    },
+
+    q8: {
+      cat:"risico",
+      eyebrow:"Risico & kennisborging",
+      text:"Is deze kennis op dit moment bij één persoon belegd, of breder geborgd binnen uw praktijk?",
+      options:[
+        {label:"Breed geborgd — meerdere mensen kunnen het overnemen", points:1},
+        {label:"Bij twee personen", points:2},
+        {label:"Bij één persoon, maar wel goed gedocumenteerd", points:3},
+        {label:"Bij één persoon, en verder nergens", points:4}
+      ]
+    },
+    q9: {
+      cat:"risico",
+      eyebrow:"Risico & kennisborging",
+      text:"Hoe wordt gebruikersbeheer en toegang tot het EPD binnen uw praktijk bijgehouden?",
+      options:[
+        {label:"Actief en actueel bijgehouden", points:1},
+        {label:"Redelijk — af en toe een check", points:2},
+        {label:"Eerlijk gezegd niet erg structureel", points:3},
+        {label:"Geen goed zicht op wie er allemaal toegang heeft", points:4}
+      ]
+    },
+
+    q10: {
+      cat:"groei",
+      eyebrow:"Groei & continuïteit",
+      text:"Verwacht u de komende 12 maanden te groeien in cliëntenaantal, behandelaren, of het aantal gemeenten waarmee u werkt?",
+      options:[
+        {label:"Nee, redelijk stabiel", points:1},
+        {label:"Een beetje groei", points:2},
+        {label:"Duidelijke groei verwacht", points:3},
+        {label:"Sterke groei verwacht", points:4}
+      ]
+    },
+    q11: {
+      cat:"groei",
+      eyebrow:"Groei & continuïteit",
+      text:"Wat zou het voor uw praktijk betekenen als administratieve fouten of achterstanden verleden tijd zijn?",
+      options:[
+        {label:"Niet zoveel — dat hebben we al goed voor elkaar", points:1},
+        {label:"Prettig, maar geen prioriteit", points:2},
+        {label:"Merkbaar — we zouden rustiger kunnen werken", points:3},
+        {label:"Heel veel, dit speelt nu echt", points:4}
+      ]
+    }
+  };
+
+  // Fixed logical order; branch questions are filtered by showIf at build time
+  var order = ["type","q1","q2","q3","q4a","q5a","q4b","q5b","q6b","q7b","q8","q9","q10","q11"];
+
+  function buildFlow(){
+    flow = order.filter(function(id){
+      var q = questions[id];
+      if(!q.showIf) return true;
+      return q.showIf(state);
+    });
+  }
+
+  // ---------------------------------------------------------------
+  // RENDERING
+  // ---------------------------------------------------------------
+  var elIntro = document.getElementById('screen-intro');
+  var elQuiz = document.getElementById('screen-quiz');
+  var elResults = document.getElementById('screen-results');
+  var elTabs = document.getElementById('tabs');
+  var elStepLabel = document.getElementById('step-label');
+  var elEyebrow = document.getElementById('q-eyebrow');
+  var elQText = document.getElementById('q-text');
+  var elQBody = document.getElementById('q-body');
+  var elBack = document.getElementById('back-btn');
+
+  function renderTabs(){
+    elTabs.innerHTML = "";
+    flow.forEach(function(id, i){
+      var t = document.createElement('div');
+      t.className = 'tab' + (i < current ? ' done' : (i === current ? ' current' : ''));
+      var fill = document.createElement('div');
+      fill.className = 'tab-fill';
+      t.appendChild(fill);
+      elTabs.appendChild(t);
+    });
+  }
+
+  function renderQuestion(){
+    var id = flow[current];
+    var q = questions[id];
+
+    renderTabs();
+    elStepLabel.textContent = "Vraag " + (current+1) + " van " + flow.length;
+    elEyebrow.textContent = q.eyebrow;
+    elQText.textContent = q.text;
+    elBack.disabled = (current === 0);
+
+    elQBody.innerHTML = "";
+
+    if(q.type === "type-select"){
+      var grid = document.createElement('div');
+      grid.className = 'type-grid';
+      q.options.forEach(function(opt){
+        var card = document.createElement('div');
+        card.className = 'type-card';
+        card.innerHTML = '<div class="t-label">'+opt.label+'</div><div class="t-sub">'+opt.sub+'</div>';
+        card.addEventListener('click', function(){
+          state.type = opt.value;
+          buildFlow();
+          current = flow.indexOf('q1');
+          renderQuestion();
+        });
+        grid.appendChild(card);
+      });
+      elQBody.appendChild(grid);
+    } else {
+      var wrap = document.createElement('div');
+      wrap.className = 'options';
+      q.options.forEach(function(opt){
+        var btn = document.createElement('div');
+        btn.className = 'option';
+        btn.innerHTML = '<span class="marker"></span><span>'+opt.label+'</span>';
+        btn.addEventListener('click', function(){
+          state.answers[id] = opt.points;
+          goNext();
+        });
+        wrap.appendChild(btn);
+      });
+      elQBody.appendChild(wrap);
+    }
+  }
+
+  function goNext(){
+    if(current < flow.length - 1){
+      current++;
+      renderQuestion();
+    } else {
+      showResults();
+    }
+  }
+
+  elBack.addEventListener('click', function(){
+    if(current > 0){
+      current--;
+      // if going back lands on the type-select question, clear downstream answers is unnecessary; just re-render
+      renderQuestion();
+    }
+  });
+
+  document.getElementById('start-btn').addEventListener('click', function(){
+    buildFlow(); // just the type question at this point
+    current = 0;
+    elIntro.classList.add('hidden');
+    elQuiz.classList.remove('hidden');
+    renderQuestion();
+  });
+
+  document.getElementById('restart-btn').addEventListener('click', function(){
+    state = { type:null, answers:{} };
+    current = 0;
+    elResults.classList.add('hidden');
+    elIntro.classList.remove('hidden');
+  });
+
+  // ---------------------------------------------------------------
+  // SCORING
+  // ---------------------------------------------------------------
+  function categoryScore(ids){
+    var sum = 0, min = 0, max = 0;
+    ids.forEach(function(id){
+      if(state.answers.hasOwnProperty(id)){
+        sum += state.answers[id];
+        min += 1;
+        max += 4;
+      }
+    });
+    if(max === min) return null; // category not applicable
+    var pct = Math.round(((sum - min) / (max - min)) * 100);
+    return pct;
+  }
+
+  function labelFor(pct){
+    if(pct <= 35) return {word:"in rust", tone:"good"};
+    if(pct <= 65) return {word:"kwetsbaar", tone:"warn"};
+    return {word:"urgent", tone:"warn"};
+  }
+
+  function showResults(){
+    elQuiz.classList.add('hidden');
+    elResults.classList.remove('hidden');
+
+    var tijd = categoryScore(["q1","q2","q3"]);
+    var risicoIds = ["q8","q9"];
+    if(state.type==="ggz"||state.type==="both") risicoIds = risicoIds.concat(["q4a","q5a"]);
+    var risico = categoryScore(risicoIds);
+    var jeugdcomplex = (state.type==="jeugd"||state.type==="both") ? categoryScore(["q4b","q5b","q6b","q7b"]) : null;
+    var groei = categoryScore(["q10","q11"]);
+
+    // Weighted overall — jeugdcomplex weighs slightly heavier when present,
+    // reflecting that gemeente-diversiteit structureel meer risico toevoegt.
+    var parts = [ {v:tijd,w:1}, {v:risico,w:1.2}, {v:groei,w:0.8} ];
+    if(jeugdcomplex !== null) parts.push({v:jeugdcomplex, w:1.3});
+    var wSum=0, vSum=0;
+    parts.forEach(function(p){ vSum += p.v*p.w; wSum += p.w; });
+    var overall = Math.round(vSum/wSum);
+
+    var verdict;
+    if(overall <= 35){
+      verdict = {
+        title:"Uw administratie staat er goed voor",
+        lede:"Op basis van uw antwoorden lijkt de basis van uw zorgadministratie op orde: tijd, kennis en continuïteit zijn redelijk goed geborgd. Blijf vooral alert op de punten hieronder naarmate uw praktijk verandert."
+      };
+    } else if(overall <= 65){
+      verdict = {
+        title:"Er zitten kwetsbare plekken in uw administratie",
+        lede:"Op een aantal punten loopt uw praktijk risico op tijdverlies, kennisverlies of onduidelijkheid — met name daar waar de score hieronder oploopt. Veel praktijken in een vergelijkbare situatie kiezen ervoor de administratie structureel te beleggen bij een gespecialiseerde partij."
+      };
+    } else {
+      verdict = {
+        title:"Uw administratie loopt aanzienlijk risico",
+        lede:"De antwoorden wijzen op structurele kwetsbaarheid: te veel afhankelijkheid van één persoon, tijdgebrek, of complexiteit die niet meer goed te overzien is. Dit is precies het punt waarop gespecialiseerde ondersteuning het snelst rust en zekerheid oplevert."
+      };
+    }
+
+    document.getElementById('res-title').textContent = verdict.title;
+    document.getElementById('res-lede').textContent = verdict.lede;
+
+    var blocks = document.getElementById('cat-blocks');
+    blocks.innerHTML = "";
+
+    var catDefs = [
+      { key:"tijd", name:"Tijd & capaciteit", val:tijd,
+        note:{good:"Tijd lijkt geen structureel knelpunt in uw praktijk.",
+              warn:"Er gaat merkbaar tijd verloren aan administratie die ook anders belegd kan worden."} },
+      { key:"risico", name:"Risico & kennisborging", val:risico,
+        note:{good:"Kennis van regelgeving en toegangsbeheer is redelijk goed geborgd.",
+              warn:"Kennis zit kwetsbaar dicht bij één persoon, en controles of regelgeving vragen om meer zekerheid."} }
+    ];
+    if(jeugdcomplex !== null){
+      catDefs.push({ key:"jeugdcomplex", name:"Complexiteit gemeenten (Jeugdhulp)", val:jeugdcomplex,
+        note:{good:"De verschillen tussen gemeenten lijkt u goed te overzien.",
+              warn:"Werken met meerdere gemeenten betekent werken met meerdere regels tegelijk — dat kost onevenredig veel tijd om zelf bij te houden."} });
+    }
+    catDefs.push({ key:"groei", name:"Groei & continuïteit", val:groei,
+        note:{good:"Er is nu weinig druk vanuit groei op de administratie.",
+              warn:"Verwachte groei zal de huidige druk op de administratie waarschijnlijk verder vergroten."} });
+
+    catDefs.forEach(function(c){
+      var lab = labelFor(c.val);
+      var div = document.createElement('div');
+      div.className = 'cat-block';
+      div.innerHTML =
+        '<div class="cat-top"><span class="cat-name">'+c.name+'</span><span class="cat-score">'+lab.word+'</span></div>' +
+        '<div class="cat-bar"><div class="cat-bar-fill'+(lab.tone==="warn"?" warn":"")+'" style="width:'+c.val+'%"></div></div>' +
+        '<div class="cat-note">'+(lab.tone==="warn" ? c.note.warn : c.note.good)+'</div>';
+      blocks.appendChild(div);
+      // trigger transition
+      setTimeout(function(){ }, 10);
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>
