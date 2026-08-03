@@ -925,7 +925,7 @@
     mailStatus.textContent = "Bezig met versturen…";
     mailStatus.className = "mail-status";
 
-    fetch('/api/quickscan-mail', {
+    fetch('https://app.payiban.com/api/public/quickscan-mail', {
       method:'POST',
       headers:{ 'Content-Type':'application/json' },
       body: JSON.stringify({
