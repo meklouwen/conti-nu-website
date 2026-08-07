@@ -1,0 +1,18 @@
+{
+  "name": "conti_nu",
+  "display_name": "Conti-Nu Bedrijfsondersteuning",
+  "type": "static",
+  "tier": "external_repo",
+  "external_repo": {
+    "provider": "github",
+    "url": "https://github.com/meklouwen/conti-nu-website",
+    "branch": "main",
+    "live_host": "vercel",
+    "live_url": "https://conti-nu-website.vercel.app/",
+    "live_domain_target": "conti-nu.nl"
+  },
+  "src_dir": "app/websites/conti_nu",
+  "build_dir": "app/websites/conti_nu",
+  "build_steps": [],
+  "notes": "Klant-site bring-your-own-hosting. Repo wordt onaangeraakt gehouden zodat git-passthrough naar de eigen GitHub + Vercel-deploy van de klant blijft werken. Dashboard-edits worden lokaal gepreviewed en op TEST gehost; live deployment loopt via push naar de origin-repo (Vercel pakt automatisch op). Partner: Leedz."
+}
