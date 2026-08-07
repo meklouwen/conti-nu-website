@@ -801,6 +801,7 @@
     elIntro.classList.add('hidden');
     elQuiz.classList.remove('hidden');
     renderQuestion();
+    if(typeof gtag === 'function'){ gtag('event', 'quickscan_start'); }
   });
 
   document.getElementById('restart-btn').addEventListener('click', function(){
@@ -912,6 +913,13 @@
       categories: catDefs.map(function(c){ return { name:c.name, pct:c.val, label:labelFor(c.val).word }; })
     };
     resetMailForm();
+
+    if(typeof gtag === 'function'){
+      gtag('event', 'quickscan_complete', {
+        practice_type: state.type,
+        overall_score: overall
+      });
+    }
   }
 
   // ---------------------------------------------------------------
@@ -958,6 +966,9 @@
         mailForm.classList.add('hidden');
         mailStatus.textContent = "Verstuurd! U ontvangt de uitslag binnen enkele minuten in uw inbox.";
         mailStatus.className = "mail-status ok";
+        if(typeof gtag === 'function'){
+          gtag('event', 'quickscan_lead', { practice_type: lastResult.practiceType });
+        }
       } else {
         return res.json().catch(function(){ return {}; }).then(function(body){ throw body; });
       }
