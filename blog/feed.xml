@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CONTI-NU Bedrijfsondersteuning — Blog</title>
+    <link>https://www.conti-nu.nl/blog</link>
+    <atom:link href="https://www.conti-nu.nl/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Artikelen over GGZ- en jeugdzorgadministratie, declareren en software.</description>
+    <language>nl-nl</language>
+    <item>
+      <title>HCI Declaratieservice</title>
+      <link>https://hci-software.com/crs/partners/</link>
+      <guid isPermaLink="true">https://hci-software.com/crs/partners/</guid>
+      <pubDate>Sat, 01 Nov 2025 08:00:00 +0100</pubDate>
+      <category>Declaraties &amp; Systemen</category>
+      <description>Het declaratieproces in de zorg is steeds complexer geworden. HCI biedt met de Declaratieservice een oplossing die zorgpraktijken ontlast van de tijdrovende declaratieadministratie.</description>
+      <enclosure url="https://www.conti-nu.nl/Assets/HCI-.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Conti-nu aangesloten bij ZZP Nederland</title>
+      <link>https://www.zzp-nederland.nl/</link>
+      <guid isPermaLink="true">https://www.zzp-nederland.nl/</guid>
+      <pubDate>Wed, 01 Oct 2025 08:00:00 +0100</pubDate>
+      <category>Partnerschap</category>
+      <description>Conti-nu Bedrijfsondersteuning heeft zich aangesloten bij ZZP Nederland, de onafhankelijke belangenbehartiger die zelfstandigen ondersteunt met kennis, netwerk en collectieve voordelen.</description>
+      <enclosure url="https://www.conti-nu.nl/Assets/logo.svg" type="image/jpeg" length="0"/>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-09-07T17:58:41",
+  "site": "conti_nu",
+  "articles": [
+    {
+      "slug": "hci-declaratieservice",
+      "title": "HCI Declaratieservice",
+      "url": "https://hci-software.com/crs/partners/",
+      "external": true,
+      "date": "2025-11-01",
+      "category": "Declaraties & Systemen",
+      "summary": "Het declaratieproces in de zorg is steeds complexer geworden. HCI biedt met de Declaratieservice een oplossing die zorgpraktijken ontlast van de tijdrovende declaratieadministratie.",
+      "image_url": "https://www.conti-nu.nl/Assets/HCI-.jpg",
+      "author": "Dunja Kelder",
+      "keywords": "",
+      "linkedin_text": "",
+      "status": "gepubliceerd"
+    },
+    {
+      "slug": "zzp-nederland",
+      "title": "Conti-nu aangesloten bij ZZP Nederland",
+      "url": "https://www.zzp-nederland.nl/",
+      "external": true,
+      "date": "2025-10-01",
+      "category": "Partnerschap",
+      "summary": "Conti-nu Bedrijfsondersteuning heeft zich aangesloten bij ZZP Nederland, de onafhankelijke belangenbehartiger die zelfstandigen ondersteunt met kennis, netwerk en collectieve voordelen.",
+      "image_url": "https://www.conti-nu.nl/Assets/logo.svg",
+      "author": "Dunja Kelder",
+      "keywords": "",
+      "linkedin_text": "",
+      "status": "gepubliceerd"
+    }
+  ]
+}
