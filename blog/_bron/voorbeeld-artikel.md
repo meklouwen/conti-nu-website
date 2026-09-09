@@ -11,21 +11,17 @@ trefwoorden: voorbeeld
 linkedin: Voorbeeld van een korte LinkedIn-tekst bij dit artikel.
 ---
 
-Dit is de inleiding. Een of twee alinea's die uitleggen waarom dit onderwerp
-nu speelt voor zorgpraktijken.
+Dit is de inleiding. Een of twee alinea's die uitleggen waarom dit onderwerp nu speelt voor zorgpraktijken.
 
 ## Eerste tussenkop
 
-Gewone alinea's. **Vetgedrukte** woorden waar het om gaat, en een opsomming
-als er meerdere punten zijn:
+Gewone alinea's. **Vetgedrukte** woorden waar het om gaat, en een opsomming als er meerdere punten zijn:
 
-- Eerste punt, in één zin.
-- Tweede punt.
-- Derde punt.
+  
 
 ## Tweede tussenkop
 
-> Een citaat of een kernzin die eruit mag springen.
+  
 
 Een foto in de tekst zet je zo neer:
 
@@ -33,5 +29,4 @@ Een foto in de tekst zet je zo neer:
 
 ## Wat kunt u nu doen
 
-Sluit af met een concrete stap voor de lezer. De pagina krijgt daaronder
-automatisch een contact- en quickscan-blok.
+Sluit af met een concrete stap voor de lezer. De pagina krijgt daaronder automatisch een contact- en quickscan-blok.
