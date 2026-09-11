@@ -59,16 +59,37 @@
 
 
   <url>
-    <loc>https://www.conti-nu.nl/blog</loc>
+    <loc>https://www.conti-nu.nl/reviews</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 
   <url>
-    <loc>https://www.conti-nu.nl/reviews</loc>
-    <lastmod>2026-09-09</lastmod>
+    <loc>https://www.conti-nu.nl/blog</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.conti-nu.nl/blog/jaareinde-checklist-ggz-jeugdzorg</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.conti-nu.nl/blog/kwetsbare-zorgadministratie-quickscan</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.conti-nu.nl/blog/visitatie-lvvp-kwaliteitscriteria</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
