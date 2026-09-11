@@ -50,7 +50,3 @@ Andersom geldt ook: wie deze basis op orde heeft, ervaart deze momenten aanzienl
 Om dit voor uw eigen praktijk inzichtelijk te maken, ontwikkelde Conti-nu de Quickscan zorgadministratie: elf korte vragen over tijd, risico, complexiteit en groei, toegespitst op of u ggz, jeugdhulp, of beide biedt. Binnen twee minuten krijgt u een concreet beeld van waar uw praktijk sterk staat, en waar de kwetsbare plekken zitten.
 
 De uitkomst is geen oordeel, maar een vertrekpunt: een helder overzicht waarmee u zelf kunt bepalen of, en waar, actie nodig is.
-
-## Benieuwd hoe uw praktijk ervoor staat?
-
-Doe de gratis Quickscan zorgadministratie, elf vragen, twee minuten, direct inzicht. Wilt u de uitkomst samen bespreken en kijken wat dit concreet voor uw praktijk betekent? Neem dan vrijblijvend contact op met Conti-nu Bedrijfsondersteuning.
