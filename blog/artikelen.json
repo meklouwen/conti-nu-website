@@ -1,7 +1,49 @@
 {
-  "generated_at": "2026-09-09T20:03:07",
+  "generated_at": "2026-09-11T14:35:54",
   "site": "conti_nu",
   "articles": [
+    {
+      "slug": "jaareinde-checklist-ggz-jeugdzorg",
+      "title": "Het jaar afsluiten — dit moet u als ggz- of jeugdzorgpraktijk nog regelen",
+      "url": "https://www.conti-nu.nl/blog/jaareinde-checklist-ggz-jeugdzorg",
+      "external": false,
+      "date": "2026-09-11",
+      "category": "Administratie",
+      "summary": "Een checklist om zonder losse eindjes het nieuwe jaar in te gaan — van dossiers en declaraties tot contractering, CBS-beleidsinformatie en productieverantwoording.",
+      "image_url": "",
+      "author": "Dunja Kelder",
+      "keywords": "jaareinde checklist, GGZ, jeugdzorg, ZPM, declaraties, CBS-beleidsinformatie, productieverantwoording, contractering",
+      "linkedin_text": "De feestdagen lonken, maar voor uw financiële en administratieve huishouding is dit juist een cruciale periode. Wat u nu laat liggen, spookt in januari terug. Onze checklist zet op een rij wat u als ggz- of jeugdzorgpraktijk nog moet regelen vóór de jaarwisseling.",
+      "status": "gepubliceerd"
+    },
+    {
+      "slug": "kwetsbare-zorgadministratie-quickscan",
+      "title": "Hoe kwetsbaar is de zorgadministratie van uw praktijk eigenlijk?",
+      "url": "https://www.conti-nu.nl/blog/kwetsbare-zorgadministratie-quickscan",
+      "external": false,
+      "date": "2026-09-11",
+      "category": "Zorgadministratie",
+      "summary": "Waarom zorgadministratie zo vaak een blinde vlek is, en hoe u dat in twee minuten inzichtelijk maakt met de gratis Quickscan zorgadministratie.",
+      "image_url": "",
+      "author": "Dunja Kelder",
+      "keywords": "zorgadministratie, quickscan, GGZ, jeugdzorg, kwetsbaarheid, kennisborging, continuïteit",
+      "linkedin_text": "De meeste ggz- en jeugdzorgpraktijken merken pas dat hun administratie kwetsbaar is op het moment dat het misgaat. Met onze gratis Quickscan zorgadministratie (elf vragen, twee minuten) ziet u het vóór die tijd.",
+      "status": "gepubliceerd"
+    },
+    {
+      "slug": "visitatie-lvvp-kwaliteitscriteria",
+      "title": "Wat houdt een visitatie in de ggz eigenlijk in?",
+      "url": "https://www.conti-nu.nl/blog/visitatie-lvvp-kwaliteitscriteria",
+      "external": false,
+      "date": "2026-09-11",
+      "category": "Kwaliteit & Visitatie",
+      "summary": "De 18 LVVP-kwaliteitscriteria op een rij, gegroepeerd in vijf pijlers. Zo weet u precies waar een visitatiecommissie naar kijkt, en waarom de meeste punten dichter bij uw administratie liggen dan bij uw behandelvaardigheid.",
+      "image_url": "",
+      "author": "Dunja Kelder",
+      "keywords": "visitatie, LVVP, kwaliteitscriteria, GGZ, jeugdzorg, contractering, zorgadministratie",
+      "linkedin_text": "Visitatie is voor veel praktijkhouders in de ggz een moment dat meteen wat spanning oproept, vooral omdat bijna niemand de 18 LVVP-criteria nog uit het hoofd kent. Wij zetten ze op een rij, gegroepeerd in vijf pijlers.",
+      "status": "gepubliceerd"
+    },
     {
       "slug": "hci-declaratieservice",
       "title": "HCI Declaratieservice",
