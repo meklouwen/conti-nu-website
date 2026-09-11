@@ -3,11 +3,9 @@ titel: Voorbeeldartikel: zo ziet een blogpost eruit
 datum: 2026-09-07
 categorie: Voorbeeld
 samenvatting: Dit concept laat de opmaak van een artikel zien. Het staat op status concept en komt dus niet online; kopieer het bestand als startpunt voor een echt artikel.
-afbeelding: /Assets/juichende-vrouw-768x422.jpg
-afbeelding_alt: Voorbeeldfoto
 auteur: Dunja Kelder
 status: concept
-trefwoorden: voorbeeld
+trefwoorden: visitatie, GGZ, jeugdzorg, quickscan, LVVP, kwaliteitscriteria, zorgadministratie
 linkedin: Voorbeeld van een korte LinkedIn-tekst bij dit artikel.
 ---
 
@@ -27,7 +25,7 @@ Dit artikel zet de 18 kwaliteitscriteria van de LVVP op een rij, gegroepeerd in 
 
 ## **Wat is een visitatie precies?**
 
-Visitatie betekent letterlijk: bij collega's op bezoek gaan. Het is geen inspectie en geen toets waar je voor kunt zakken. Het doel is een verbeterproces op gang te brengen — de kwaliteit van je praktijkvoering in kaart brengen en waar nodig aanscherpen, samen met vakgenoten die weten waar ze naar moeten kijken.
+Visitatie betekent letterlijk: bij collega's op bezoek gaan. Het is geen inspectie en geen toets waar je voor kunt zakken. Het doel is een verbeterproces op gang te brengen, de kwaliteit van je praktijkvoering in kaart brengen en waar nodig aanscherpen, samen met vakgenoten die weten waar ze naar moeten kijken.
 
   
 
@@ -37,9 +35,9 @@ Het traject bestaat uit drie verplichte momenten: een gezamenlijke startbijeenko
 
 ## **De vijf pijlers van de LVVP-kwaliteitscriteria**
 
-  
-
 De 18 criteria die de LVVP hanteert, vallen uiteen in vijf logische groepen. Hieronder lichten we elke pijler toe.
+
+  
 
 ### **1\. Vakbekwaamheid**
 
@@ -53,6 +51,8 @@ Deze pijler gaat over de vraag of je bijblijft in je vak, en of je dat niet alle
 
 •      Een professioneel netwerk waarop je kunt terugvallen
 
+  
+
 ### **2\. Aanmelding & dossier**
 
 Dit is de pijler waar administratie het meest direct aan bod komt. Het draait om de vraag of je proces klopt, en of je dossier dat proces ook aantoonbaar maakt.
@@ -63,7 +63,9 @@ Dit is de pijler waar administratie het meest direct aan bod komt. Het draait om
 
 •      Correcte dossiervorming, die zo nodig overdraagbaar is aan een ander
 
-•      (Tussentijdse) rapportages en brieven aan de verwijzer, met toestemming van de patiënt
+•      (Tussentijdse) rapportages en brieven aan de verwijzer, met toestemming van de cliënt
+
+  
 
 ### **3\. Cliëntgerichtheid**
 
@@ -77,6 +79,8 @@ Hier wordt getoetst of de cliënt weet waar hij aan toe is, en of hij daadwerkel
 
 •      Een werkende klachtenregeling
 
+  
+
 ### **4\. Veiligheid & organisatie**
 
 Deze pijler gaat over hoe veilig en solide je praktijk is georganiseerd, ook als er iets misgaat of als jij er zelf niet bent.
@@ -88,6 +92,8 @@ Deze pijler gaat over hoe veilig en solide je praktijk is georganiseerd, ook als
 •      Een protocol voor (kinder)mishandeling en geweld
 
 •      Een praktijktestament en waarneemregeling voor avond, nacht en weekend
+
+  
 
 ### **5\. Verbetercyclus**
 
@@ -101,13 +107,17 @@ De laatste pijler is misschien wel de meest onderschatte: durf je ook naar jezel
 
 ## **Wat opvalt: de meeste punten gaan over vastlegging, niet behandeling**
 
-Wie deze 18 punten naast elkaar legt, ziet een patroon: ruim de helft ervan gaat niet over hoe goed je behandelt, maar over hoe goed je dat vastlegt en organiseert. Dossiervorming, rapportages aan de verwijzer, een werkende klachtenregeling, een actieve kwaliteitscyclus — het zijn stuk voor stuk administratieve processen.
+Wie deze 18 punten naast elkaar legt, ziet een patroon: ruim de helft ervan gaat niet over hoe goed je behandelt, maar over hoe goed je dat vastlegt en organiseert. Dossiervorming, rapportages aan de verwijzer, een werkende klachtenregeling, een actieve kwaliteitscyclus, het zijn stuk voor stuk administratieve processen.
 
 Dat is meteen de reden waarom praktijken met een rommelige administratie een visitatie vaak spannender vinden dan praktijken die inhoudelijk sterk zijn. Een visitatie beoordeelt in belangrijke mate hoe goed je praktijk georganiseerd is, niet alleen hoe goed je cliënten helpt.
+
+  
 
 ## **Waarom een visitatie ook meetelt bij contractering**
 
 Visitatie was ooit vooral een kwaliteitsinstrument. Inmiddels is het meer dan dat. Steeds meer zorgverzekeraars zien een geldig visitatiecertificaat als kwaliteitskeurmerk, en een aantal verzekeraars stelt het zelfs als voorwaarde om überhaupt in aanmerking te komen voor een contract. Wie zijn visitatie voor zich uit schuift, loopt dus niet alleen een kwaliteitsrisico, maar mogelijk ook een risico bij de eerstvolgende contracteringsronde.
+
+  
 
 ## **Hoe bereid je je voor?**
 
@@ -123,6 +133,6 @@ Praktijken die deze punten structureel op orde houden, ervaren een visitatie doo
 
   
 
-**Wil je weten hoe jouw praktijk ervoor staat?**
+## **Wil je weten hoe jouw praktijk ervoor staat?**
 
-Conti-nu Bedrijfsondersteuning helpt ggz- en jeugdzorgpraktijken bij het structureel op orde houden van dossiervorming, administratie en de kwaliteitscyclus — precies de onderdelen waar een visitatie het zwaarst op leunt. Doe de gratis Quickscan (11 vragen, 2 minuten) en ontdek direct hoe jouw praktijk ervoor staat, of neem contact op voor een vrijblijvend gesprek.
+Conti-nu Bedrijfsondersteuning helpt ggz- en jeugdzorgpraktijken bij het structureel op orde houden van dossiervorming, administratie en de kwaliteitscyclus, precies de onderdelen waar een visitatie het zwaarst op leunt. Doe de gratis Quickscan (11 vragen, 2 minuten) en ontdek direct hoe jouw praktijk ervoor staat, of neem contact op voor een vrijblijvend gesprek.
