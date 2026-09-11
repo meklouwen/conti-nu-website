@@ -3,7 +3,7 @@ titel: Hoe kwetsbaar is de zorgadministratie van uw praktijk eigenlijk?
 datum: 2026-09-11
 categorie: Zorgadministratie
 samenvatting: Waarom zorgadministratie zo vaak een blinde vlek is, en hoe u dat in twee minuten inzichtelijk maakt met de gratis Quickscan zorgadministratie.
-auteur: Dunja Kelder
+auteur: Dunja Tagliola-Spaan
 status: gepubliceerd
 trefwoorden: zorgadministratie, quickscan, GGZ, jeugdzorg, kwetsbaarheid, kennisborging, continuïteit
 linkedin: De meeste ggz- en jeugdzorgpraktijken merken pas dat hun administratie kwetsbaar is op het moment dat het misgaat. Met onze gratis Quickscan zorgadministratie (elf vragen, twee minuten) ziet u het vóór die tijd.

@@ -5,7 +5,7 @@ categorie: Voorbeeld
 samenvatting: Dit concept laat de opmaak van een artikel zien. Het staat op status concept en komt dus niet online; kopieer het bestand als startpunt voor een echt artikel.
 afbeelding: /Assets/juichende-vrouw-768x422.jpg
 afbeelding_alt: Voorbeeldfoto
-auteur: Dunja Kelder
+auteur: Dunja Tagliola-Spaan
 status: concept
 trefwoorden: voorbeeld
 linkedin: Voorbeeld van een korte LinkedIn-tekst bij dit artikel.

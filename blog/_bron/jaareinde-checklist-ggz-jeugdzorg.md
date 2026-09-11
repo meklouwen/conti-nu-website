@@ -3,7 +3,7 @@ titel: Het jaar afsluiten — dit moet u als ggz- of jeugdzorgpraktijk nog regel
 datum: 2026-09-11
 categorie: Administratie
 samenvatting: Een checklist om zonder losse eindjes het nieuwe jaar in te gaan — van dossiers en declaraties tot contractering, CBS-beleidsinformatie en productieverantwoording.
-auteur: Dunja Kelder
+auteur: Dunja Tagliola-Spaan
 status: gepubliceerd
 trefwoorden: jaareinde checklist, GGZ, jeugdzorg, ZPM, declaraties, CBS-beleidsinformatie, productieverantwoording, contractering
 linkedin: De feestdagen lonken, maar voor uw financiële en administratieve huishouding is dit juist een cruciale periode. Wat u nu laat liggen, spookt in januari terug. Onze checklist zet op een rij wat u als ggz- of jeugdzorgpraktijk nog moet regelen vóór de jaarwisseling.
