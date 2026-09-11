@@ -4,8 +4,8 @@ datum: 2026-09-07
 categorie: Voorbeeld
 samenvatting: Dit concept laat de opmaak van een artikel zien. Het staat op status concept en komt dus niet online; kopieer het bestand als startpunt voor een echt artikel.
 auteur: Dunja Kelder
-status: concept
-trefwoorden: visitatie, GGZ, jeugdzorg, quickscan, LVVP, kwaliteitscriteria, zorgadministratie
+status: gepubliceerd
+trefwoorden: visitatie, GGZ, jeugdzorg, quickscan, LVVP, kwaliteitscriteria, zorgadministratie, HCI CRS
 linkedin: Voorbeeld van een korte LinkedIn-tekst bij dit artikel.
 ---
 
