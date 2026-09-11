@@ -24,7 +24,31 @@ Status is niet meer "klaar voor merge" maar **AFGEROND**:
   bullet-round-trip-bug in de rich-text-editor van de Blog-module in
   `integration_dashboard` — niet in deze branch aangepakt.
 
-Geen verdere actie nodig op dit onderwerp.
+## ✅ Addendum 2 (11 sep 2026) — dubbele CTA aan het einde verwijderd
+
+Elio had een screenshot: onder een artikel zag hij géén contact-/Quickscan-
+knoppen, alleen "Deel dit artikel" en daarna leek de pagina op te houden.
+Bleek: die knoppen (het automatische `cta_sectie()`-blok) stonden er wél,
+verder naar onderen (bevestigd met een live curl) — maar elk van de 3
+nieuwe artikelen eindigde ZELF óók al met een eigen contact/Quickscan-
+oproep, vlak vóór dat automatische blok. Twee bijna-identieke CTA's
+achter elkaar maakte het te makkelijk om te denken dat de pagina bij
+"Deel dit artikel" al klaar was.
+
+**Fix**: branch `fix/blog-cta-niet-dubbelop` (basis `origin/main` bij
+`303bd10`, commit `12100b0`, **gepusht, NIET gemerged, NIET uitgerold**).
+Verwijdert alleen de laatste, pure-CTA-alinea uit de 3 artikelen
+(`visitatie-lvvp-kwaliteitscriteria.md`, `jaareinde-checklist-ggz-jeugdzorg.md`,
+`kwetsbare-zorgadministratie-quickscan.md`) — de inhoudelijke slotalinea's
+daarvóór blijven staan. `python3 build_blog.py` opnieuw gedraaid,
+gegenereerde bestanden zitten in de commit.
+
+**Nog te doen** (zelfde traject als eerder): `main` mergen met
+`fix/blog-cta-niet-dubbelop`, pushen, rsync-uitrollen, en na uitrol
+1 artikel openen om te bevestigen dat het dubbele stuk weg is en het
+automatische CTA-blok nu meteen na "Deel dit artikel" volgt.
+
+Geen verdere actie nodig op dit onderwerp ná die merge + uitrol.
 
 ---
 
