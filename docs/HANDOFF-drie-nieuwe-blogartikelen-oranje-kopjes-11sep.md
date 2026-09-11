@@ -1,5 +1,33 @@
 # HANDOFF — 3 nieuwe blogartikelen + oranje tussenkopjes (11 sep 2026)
 
+## ✅ Addendum (11 sep 2026, later) — gemerged, gepusht, live geverifieerd
+
+Status is niet meer "klaar voor merge" maar **AFGEROND**:
+
+- `main` bevat de merge (`303bd10`), gepusht naar `origin/main` — door Elio
+  gedaan (ik kan hier niet naar `main` pushen, deploy-guard).
+- **Uitrol (rsync) is ook al gebeurd** — geverifieerd met een live check,
+  niet aangenomen:
+  - `https://www.conti-nu.nl/blog/visitatie-lvvp-kwaliteitscriteria` → 200
+  - `https://www.conti-nu.nl/blog/jaareinde-checklist-ggz-jeugdzorg` → 200
+  - `https://www.conti-nu.nl/blog/kwetsbare-zorgadministratie-quickscan` → 200
+  - alle 3 staan in `/blog/`-overzicht
+  - live CSS bevestigd: `.post-body h3 { ... color: var(--orange); }` staat
+    in de uitgerolde `css/style.css`
+- **Extra vraag van Elio deze sessie**: of er onder elk artikel een link naar
+  het contactformulier + een Quickscan-knop kan. Antwoord: bestond al,
+  ongewijzigd — `cta_sectie()` in `build_blog.py` (regel 180-196) hangt
+  automatisch onder ELK artikel (ook de 3 nieuwe, bevestigd in de
+  gegenereerde HTML): "Contact opnemen" → `/contact`, "Doe de quickscan" →
+  `/quickscan`. Geen code-wijziging nodig, Elio bevestigd akkoord.
+- **Openstaand punt blijft openstaand** (zie hieronder): de
+  bullet-round-trip-bug in de rich-text-editor van de Blog-module in
+  `integration_dashboard` — niet in deze branch aangepakt.
+
+Geen verdere actie nodig op dit onderwerp.
+
+---
+
 Aanleiding: Dunja meldde bij Elio dat ze haar visitatie-artikel niet live kon
 zetten ("Page not found") en dat ze na teruggaan naar "haar blog" totaal
 andere tekst zag, mist de tussenkopjes die ze had toegevoegd. Elio gaf
