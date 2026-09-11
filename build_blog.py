@@ -70,7 +70,7 @@ def lees_artikel(pad: Path) -> dict:
         "afbeelding": meta.get("afbeelding", ""),
         "afbeelding_alt": meta.get("afbeelding_alt", meta["titel"]),
         "afbeelding_stijl": meta.get("afbeelding_stijl", "foto"),   # foto (vult de kaart) of logo (past erin)
-        "auteur": meta.get("auteur", "Dunja Kelder"),
+        "auteur": meta.get("auteur", "Dunja Tagliola-Spaan"),
         "status": meta.get("status", "gepubliceerd").lower(),
         "link": meta.get("link", ""),          # extern artikel: kaart linkt daarheen
         "bron": meta.get("bron", ""),           # naam van de externe bron
