@@ -310,7 +310,8 @@ def bouw_artikel(schil, a, overige) -> str:
 
 <!-- ═══ ARTIKEL ═══ -->
 <article class="section post" aria-labelledby="post-title">
-  <div class="container post-container">{figuur}
+  <div class="container">{figuur}
+    <div class="post-container">
     <div class="post-body">
 {body}
     </div>
@@ -322,6 +323,7 @@ def bouw_artikel(schil, a, overige) -> str:
       </a>
       <a class="btn btn-outline" href="mailto:?subject={esc(a['titel'])}&amp;body={deel_url}">E-mail</a>
       <a class="post-terug" href="/blog">&larr; Alle artikelen</a>
+    </div>
     </div>
   </div>
 </article>
