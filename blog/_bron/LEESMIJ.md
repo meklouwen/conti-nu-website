@@ -14,7 +14,7 @@ categorie: Declareren
 samenvatting: In twee zinnen waar het artikel over gaat. Dit is ook de tekst die op LinkedIn en in Google verschijnt.
 afbeelding: declareren-2027.jpg
 afbeelding_alt: Behandelaar achter laptop met declaratieoverzicht
-auteur: Dunja Tagliola-Spaan
+auteur: Dunja Tagliola
 status: gepubliceerd
 trefwoorden: ggz declaraties 2027, zorgprestatiemodel, declareren ggz
 linkedin: Korte, persoonlijke tekst als voorstel voor de LinkedIn-post. Mag leeg blijven.

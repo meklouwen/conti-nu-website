@@ -3,7 +3,7 @@ titel: Wat houdt een visitatie in de ggz eigenlijk in?
 datum: 2026-09-11
 categorie: Kwaliteit & Visitatie
 samenvatting: De 18 LVVP-kwaliteitscriteria op een rij, gegroepeerd in vijf pijlers. Zo weet u precies waar een visitatiecommissie naar kijkt, en waarom de meeste punten dichter bij uw administratie liggen dan bij uw behandelvaardigheid.
-auteur: Dunja Tagliola-Spaan
+auteur: Dunja Tagliola
 status: gepubliceerd
 trefwoorden: visitatie, LVVP, kwaliteitscriteria, GGZ, jeugdzorg, contractering, zorgadministratie
 linkedin: Visitatie is voor veel praktijkhouders in de ggz een moment dat meteen wat spanning oproept, vooral omdat bijna niemand de 18 LVVP-criteria nog uit het hoofd kent. Wij zetten ze op een rij, gegroepeerd in vijf pijlers.
