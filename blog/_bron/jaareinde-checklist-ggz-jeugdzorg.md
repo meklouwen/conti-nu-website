@@ -61,7 +61,3 @@ Veel praktijkhouders stellen administratieve afronding uit tot het nieuwe jaar a
 ## Tot slot
 
 Geen enkele praktijkhouder wordt vrolijk van deze lijst, maar wie 'm nu doorloopt, begint het nieuwe jaar zonder losse eindjes. En dat scheelt in januari een hoop stress die u net zo goed nu al kunt voorkomen.
-
-## Wilt u zeker weten dat uw praktijk alles op orde heeft voor de jaarwisseling?
-
-Conti-nu Bedrijfsondersteuning helpt ggz- en jeugdzorgpraktijken door deze periode heen, van dossiercontrole tot productieverantwoording. Neem contact op voor een vrijblijvend gesprek.
